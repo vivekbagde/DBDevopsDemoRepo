@@ -1,6 +1,12 @@
 pipeline {
   agent any
+
   stages {
+    stage('Fetch Code') {
+      steps {
+        git branch: 'master', url: 'https://github.com/vivekbagde/DBDevopsDemoRepo.git'
+      }
+    }
     stage('Test') {
       steps {
         sh 'liquibase --version'
